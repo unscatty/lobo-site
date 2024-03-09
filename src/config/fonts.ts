@@ -1,3 +1,5 @@
+import { join } from 'node:path'
+
 interface Record {
   [property: string]: string
 }
@@ -23,8 +25,10 @@ export interface FontConfig {
   fallbackName?: string
   googleFontsURL?: string
   cssVariable?: string | boolean
-  fallback: 'serif' | 'sans-serif'
+  fallback: 'serif' | 'sans-serif' | 'monospace' | 'cursive' | 'fantasy' | 'system-ui'
 }
+
+const localFontsPath = join(process.cwd(), 'public', 'fonts')
 
 // Get font from diffrerent sources
 // More info: https://github.com/rishi-raj-jain/astro-font/
@@ -46,6 +50,19 @@ export const mainPageFonts: FontConfig[] = [
   //   display: 'swap',
   //   fallback: 'sans-serif',
   // },
+  {
+    name: 'Boycott',
+    src: [
+      {
+        style: 'normal',
+        weight: 400,
+        path: join(localFontsPath, 'Boycott.ttf'),
+      },
+    ],
+    preload: false,
+    display: 'swap',
+    fallback: 'monospace',
+  },
 ]
 
 export const allFonts: FontConfig[] = [...mainPageFonts]
