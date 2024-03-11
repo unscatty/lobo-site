@@ -1,0 +1,14 @@
+---
+import SpeakersSlider from '@components/landing/vue/SpeakersSlider.vue'
+import Speakers from '@components/landing/vue/Speak.vue'
+import Test from '@components/landing/vue/test.vue'
+import Test2 from '@components/landing/vue/test2.vue'
+import { Suspense, KeepAlive, Transition } from 'vue'
+---
+
+<Fragment>
+  <Speakers client:idle/>
+  <br />
+  <Test client:load />
+  <Test2 client:idle />
+</Fragment>
